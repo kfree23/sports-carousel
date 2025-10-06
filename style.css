@@ -1,0 +1,579 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CLEAN UP CODE, ASK CHAT WHAT COULD BE BETTER, COMMENT STUFF */
+
+
+/* Arrow Styling */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
+}
+
+.prev-arrow {
+  left: 10px;
+}
+
+.next-arrow {
+  right: 10px;
+}
+
+
+#carousel {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: auto;
+  padding: 16px;
+  overflow-x: auto;
+  gap: 20px;
+  position: relative;
+}
+
+/* Card Styling and Animations */
+
+.card {
+  perspective: 1000px;
+}
+
+.cobra-card,
+.panthers-card,
+.horses-card,
+.eagles-card,
+.flames-card,
+.wolves-card {
+  position: relative;
+  width: 344px;
+  height: 521px;
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+
+.cobra-card-front,
+.cobra-card-back,
+.panthers-card-front,
+.panthers-card-back,
+.horses-card-front,
+.horses-card-back,
+.eagles-card-front,
+.eagles-card-back,
+.flames-card-front,
+.flames-card-back,
+.wolves-card-front,
+.wolves-card-back {
+  width: 344px;
+  height: 521px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+}
+
+
+.card:hover .cobra-card,
+.card:hover .panthers-card,
+.card:hover .horses-card,
+.card:hover .eagles-card,
+.card:hover .flames-card,
+.card:hover .wolves-card {
+  transform: rotateY(180deg);
+}
+
+/* COBRA CARD */
+
+.cobra-card-front {
+  background-image:
+    url("images/cobras-background-removed.png"),
+    linear-gradient(180deg, #ef6916, #770101);
+  background-size: 110%, contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 8px solid #770101;
+}
+
+.cobra-card-back {
+  background: linear-gradient(180deg, #ef6916, #770101);
+  transform: rotateY(180deg);
+  border: 8px solid #770101;
+}
+
+/* PANTHERS CARD */
+
+.panthers-card-front {
+  background:
+    url("images/panthers.png"),
+    linear-gradient(180deg, #5A2180, #CE2013);
+  background-size: 120%, contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 8px solid #5A2180;
+}
+
+.panthers-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(180deg, #5A2180, #CE2013);
+  border: 8px solid #5A2180;
+}
+
+/* HORSES CARD */
+
+.horses-card-front {
+  background:
+    url("images/iron-horses.png"),
+    linear-gradient(180deg, #F34801, #000000);
+  background-size: 110%, contain;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  border: 8px solid black;
+}
+
+.horses-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(180deg, #F34801, #000000);
+  border: 8px solid black;
+}
+
+/* EAGLES CARD */
+
+.eagles-card-front {
+  background: url("images/eagles.png"),
+    linear-gradient(180deg, #0B6744, #fff);
+  background-size: 110%, contain;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  border: 8px solid #0B6744;
+}
+
+.eagles-card-back {
+  background:
+    linear-gradient(180deg, #0B6744, #e1f1eb);
+  border: 8px solid #0B6744;
+  transform: rotateY(180deg);
+}
+
+/* FLAMES CARD */
+
+.flames-card-front {
+  background:
+    url("images/flames.png"),
+    linear-gradient(180deg, #5F0102, #FFF19B);
+  background-size: 100%, contain;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  border: 8px solid #5F0102;
+}
+
+
+.flames-card-back {
+  background:
+    linear-gradient(180deg, #5F0102, #FFF19B);
+  border: 8px solid #5F0102;
+  transform: rotateY(180deg);
+}
+
+/* WOLVES CARD */
+
+.wolves-card-front {
+  background:
+    url("images/wolves.png"),
+    linear-gradient(180deg, #FFF, #0162C4);
+  background-size: 110%, contain;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  border: 8px solid #0162C4;
+}
+
+.wolves-card-back {
+  background: linear-gradient(180deg, #b3cbe3, #0162C4);
+  border: 8px solid #0162C4;
+  transform: rotateY(180deg);
+}
+
+
+/* WATER MARK STYLING */
+
+.cobra-card-back::before,
+.panthers-card-back::before,
+.horses-card-back::before,
+.eagles-card-back::before,
+.flames-card-back::before,
+.wolves-card-back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+.cobra-card-back::before {
+  background-image: url("images/cobra-mascot.png");
+  opacity: 0.2;
+}
+
+.panthers-card-back::before {
+  background-image: url("images/panthers-mascot.png");
+  opacity: 0.3;
+}
+
+.horses-card-back::before {
+  background-image: url("images/iron-horse-mascot.png");
+  opacity: 0.3;
+}
+
+.eagles-card-back::before {
+  background-image: url("images/eagles-mascot.png");
+  opacity: 0.3;
+}
+
+.flames-card-back::before {
+  background-image: url("images/flame-mascot.png");
+  opacity: 0.3;
+}
+
+.wolves-card-back::before {
+  background-image: url("images/wolf-mascot.png");
+  opacity: 0.2;
+}
+
+
+/* BACK OF SPORTS CARDS */
+/* WHAT IS THIS CODE? */
+.cobra-card-back>*,
+.panthers-card-back>*,
+.horses-card-back>*,
+.eagles-card-back>*,
+.flames-card-back>*,
+.wolves-card-back>* {
+  position: relative;
+  z-index: 1;
+}
+
+
+.cobra-card-back h1,
+.panthers-card-back h1,
+.horses-card-back h1,
+.eagles-card-back h1,
+.flames-card-back h1,
+.wolves-card-back h1 {
+  text-align: center;
+  margin-top: 30px;
+  color: #FFF;
+  font-family: "Graduate", serif;
+  font-size: 25px;
+}
+
+/* FACTS AND STATS STYLING */
+
+.player-facts {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  margin: 15px 10px;
+}
+
+.player-facts-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.player-facts-row p {
+  font-size: 14px;
+  color: #fff;
+  font-family: "Graduate", serif;
+}
+
+.player-stats {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.player-stats-row {
+  display: grid;
+  grid-template-columns: repeat(11, auto);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px;
+}
+
+.panthers-card-back .player-stats-row {
+  grid-template-columns: repeat(8, auto);
+}
+
+.player-stats-row.header-row {
+  font-weight: bold;
+}
+
+.player-stats-row.totals-row {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 2px solid #fff;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.player-stats-row p {
+  text-align: center;
+  font-size: 10px;
+  color: #fff;
+  font-family: "Graduate", serif;
+}
+
+/* BOTTOM OF THE CARD STYLES */
+
+.footer {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.footer .pitcher {
+  position: static;
+  background-color: #ef6916;
+}
+
+.footer .catcher {
+  position: static;
+  background-color: #5A2180;
+}
+
+.footer .quarterback {
+  position: static;
+  background-color: #F34801;
+}
+
+.footer .wide-receiver {
+  position: static;
+  background-color: #fff;
+}
+
+.footer .point-guard {
+  position: static;
+  background-color: #5F0102;
+  color: #FFF19B;
+}
+
+.footer .power-forward {
+  position: static;
+  background-color: #fff;
+  color: #0162C4;
+}
+
+.league-logo-back {
+  position: static;
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+}
+
+
+.footer .league-logo {
+  position: static;
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+}
+
+
+.league-logo {
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.sport-position {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 15px;
+  right: 35px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-family: "Bigshot One", serif;
+  font-weight: 400;
+  font-size: 30px;
+  font-style: normal;
+  color: #fff;
+}
+
+.pitcher {
+  background-color: #770101;
+}
+
+.catcher {
+  background-color: #CE2013;
+}
+
+.quarterback {
+  background-color: #000000;
+}
+
+.wide-receiver {
+  background-color: #fff;
+  color: #0B6744;
+}
+
+.point-guard {
+  background-color: #FFF19B;
+  color: #5F0102;
+}
+
+.power-forward {
+  background-color: #0162C4;
+  color: #fff;
+}
+
+.header {
+  position: absolute;
+  top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.mascot {
+  position: absolute;
+  bottom: 110px;
+  left: 30px;
+}
+
+.cobra {
+  width: 40px;
+  height: auto;
+}
+
+.panther {
+  width: 70px;
+  height: auto;
+  left: 10px;
+}
+
+.horse {
+  width: 60px;
+  height: auto;
+  left: 10px;
+}
+
+.eagle {
+  width: 60px;
+  height: auto;
+  left: 10px;
+}
+
+.flame {
+  width: 80px;
+  height: auto;
+  left: 0;
+}
+
+.wolf {
+  width: 90px;
+  height: auto;
+  left: 5px;
+}
+
+
+
+.card-edition {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: "Graduate", serif;
+  font-weight: 400;
+  font-size: 35px;
+  font-style: normal;
+  color: #ef6916;
+}
+
+.panther-edition {
+  font-size: 33px;
+}
+
+.eagle-edition {
+  font-size: 40px;
+  color: #0B6744;
+}
+
+.flames-edition {
+  color: #5F0102;
+}
+
+.wolves-edition {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.hof {
+  bottom: 15px;
+  font-size: 40px;
+}
+
+.signature {
+  position: absolute;
+  bottom: 150px;
+  right: 35px;
+  font-family: "Corinthia", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  color: #fff;
+  rotate: 330deg;
+}
+
+.sig-edit {
+  color: #000000;
+}
+
+/* MEDIA STYLES */
+
+@media (max-width: 768px) {
+  #carousel {
+    flex-direction: column;
+    align-items: center; 
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
