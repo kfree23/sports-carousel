@@ -1,8 +1,9 @@
 const cards = document.querySelectorAll(".card");
 const leftArrow = document.getElementById("prev-arrow");
 const rightArrow = document.getElementById("next-arrow");
-let currentIndex = 0;
 let isAnimating = false;
+let currentIndex = 0;
+
 const backgrounds = [
     "linear-gradient(180deg, #ef6916, #770101)", // cobra
     "linear-gradient(180deg, #5A2180, #CE2013)", // panthers
@@ -17,23 +18,16 @@ function updateCarousel(newIndex) {
     if (isAnimating) return;
     isAnimating = true;
 
+    
     currentIndex = (newIndex + cards.length) % cards.length;
+
     const carouselContainer = document.getElementById("carousel");
     carouselContainer.style.background = backgrounds[currentIndex];
 
-
-
     cards.forEach((card, i) => {
-        const offset = (i - currentIndex + cards.length) % cards.length;
+        offset = (i - currentIndex + cards.length) % cards.length;
 
-        card.classList.remove(
-            "center",
-            "left-1",
-            "left-2",
-            "right-1",
-            "right-2",
-            "hidden"
-        );
+        card.classList.remove("center", "left-1", "left-2", "right-1", "right-2", "hidden");
 
         if (offset === 0) {
             card.classList.add("center");
@@ -54,14 +48,13 @@ function updateCarousel(newIndex) {
         isAnimating = false;
     }, 800);
 
-    leftArrow.addEventListener("click", () => {
+    leftArrow.addEventListener('click', () => {
         updateCarousel(currentIndex - 1);
-    });
+    })
 
-    rightArrow.addEventListener("click", () => {
+    rightArrow.addEventListener('click', () => {
         updateCarousel(currentIndex + 1);
-    });
-
+    })
 }
 
 updateCarousel(currentIndex);
