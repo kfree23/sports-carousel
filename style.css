@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   min-height: 100vh;
   display: flex;
@@ -13,8 +14,6 @@ body {
   justify-content: center;
   overflow: hidden;
 }
-
-/* CLEAN UP CODE, ASK CHAT WHAT COULD BE BETTER, COMMENT STUFF */
 
 
 /* Arrow Styling */
